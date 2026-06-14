@@ -528,13 +528,7 @@ fi
 
 # Auto detect the NVM_DIR when not set
 if [ -z "${NVM_DIR-}" ]; then
-  # shellcheck disable=SC2128
-  if [ -n "${BASH_SOURCE-}" ]; then
-    NVM_SCRIPT_SOURCE="${BASH_SOURCE}"
-  fi
-  # shellcheck disable=SC2086
-  NVM_DIR="$(nvm_cd ${NVM_CD_FLAGS} "$(dirname "${NVM_SCRIPT_SOURCE:-$0}")" >/dev/null && \pwd)"
-  export NVM_DIR
+  export NVM_DIR="${HOME}/.nvm"
 else
   # https://unix.stackexchange.com/a/198289
   case $NVM_DIR in
